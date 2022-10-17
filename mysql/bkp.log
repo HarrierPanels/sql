@@ -21,3 +21,10 @@
  rewrite mysql/2022-10-17-mysql_db.sql.tar.gz (100%)
  rewrite mysql/2022-10-17-syst.sql.tar.gz (100%)
  rewrite mysql/2022-10-17-test_db.sql.tar.gz (100%)
+[master 815ea98] DB's Backup & Remove Old
+ 6 files changed, 7 insertions(+)
+ rewrite mysql/2022-10-17-Airports.sql.tar.gz (100%)
+ rewrite mysql/2022-10-17-databas.sql.tar.gz (100%)
+ rewrite mysql/2022-10-17-mysql_db.sql.tar.gz (100%)
+ rewrite mysql/2022-10-17-syst.sql.tar.gz (100%)
+ rewrite mysql/2022-10-17-test_db.sql.tar.gz (100%)
