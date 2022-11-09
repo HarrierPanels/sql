@@ -26,8 +26,8 @@ done
 
 rpupd() {
 cd $dir
-git add . && git commit -m "DB's Backup & Remove Old" && 
-git push --all origin >/dev/null 2>&1
+git add . && git commit -m "DB's Backup & Remove Old" # && 
+# git push --all origin >/dev/null 2>&1
 }
 
 # Backing up DB's
