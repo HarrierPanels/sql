@@ -58,3 +58,4 @@ rm 'mysql/2010-10-17-Airports.sql.tar.gz'
  create mode 100644 mysql/2022-11-09-mysql_db.sql.tar.gz
  create mode 100644 mysql/2022-11-09-syst.sql.tar.gz
  create mode 100644 mysql/2022-11-09-test_db.sql.tar.gz
+rm 'mysql/2010-11-01-test_db.sql.tar.gz'
