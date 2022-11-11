@@ -6,13 +6,15 @@ host="localhost"
 date=$(date +%Y-%m-%d-)
 
 dbsbkp() {
-cd $dir/mysql
 dblist=$(echo show databases | mysql -h $host | sed '1d' | 
 grep -Ev '(^(mysql|sys|information_schema|performance_schema)$)')
 for db in $dblist; do
-mysqldump $db > $db.sql && tar -czf $date$db.sql.tar.gz $db.sql && 
-rm $db.sql 
+mysqldump $db | gzip -9 > $dir/mysql/$date$db.sql.gz  
 done
+}
+
+cmsbkp() {
+cd /var/www && tar -cvzf $dir/mysql/"$date"cms.tar.gz *
 }
 
 rmold() {
@@ -26,13 +28,16 @@ done
 
 rpupd() {
 cd $dir
-git add . && git commit -m "DB's Backup & Remove Old" # && 
-# git push --all origin >/dev/null 2>&1
+git add . && git commit -m "DB's Backup & Remove Old" 
 }
 
 # Backing up DB's
 sudo service mysqld status >/dev/null 2>&1 && dbsbkp || 
 sudo service mysqld start >/dev/null 2>&1 && dbsbkp
+
+# Backing up CMS
+sudo service httpd status >/dev/null 2>&1 && cmsbkp ||
+sudo service httpd start >/dev/null 2>&1 && cmsbkp
 
 # Removing older than 30 days
 rmold
