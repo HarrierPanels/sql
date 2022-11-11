@@ -59,3 +59,12 @@ rm 'mysql/2010-10-17-Airports.sql.tar.gz'
  create mode 100644 mysql/2022-11-09-syst.sql.tar.gz
  create mode 100644 mysql/2022-11-09-test_db.sql.tar.gz
 rm 'mysql/2010-11-01-test_db.sql.tar.gz'
+[master 3b6a7e6] DB's Backup & Remove Old
+ 8 files changed, 1 insertion(+)
+ delete mode 100644 mysql/2010-11-01-test_db.sql.tar.gz
+ create mode 100644 mysql/2022-11-10-Airports.sql.gz
+ create mode 100644 mysql/2022-11-10-databas.sql.gz
+ create mode 100644 mysql/2022-11-10-mysql_db.sql.gz
+ create mode 100644 mysql/2022-11-10-syst.sql.gz
+ create mode 100644 mysql/2022-11-10-template_db.sql.gz
+ create mode 100644 mysql/2022-11-10-test_db.sql.gz
