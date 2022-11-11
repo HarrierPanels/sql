@@ -68,3 +68,32 @@ rm 'mysql/2010-11-01-test_db.sql.tar.gz'
  create mode 100644 mysql/2022-11-10-syst.sql.gz
  create mode 100644 mysql/2022-11-10-template_db.sql.gz
  create mode 100644 mysql/2022-11-10-test_db.sql.gz
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/includes/db_close.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/footer.php
+html/handle.php
+html/header.php
+html/articles.php
+html/index.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/includes/db_close.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/footer.php
+html/handle.php
+html/header.php
+html/articles.php
+html/index.php
+rm 'mysql/2011-10-17-test_db.sql.tar.gz'
