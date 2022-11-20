@@ -106,3 +106,21 @@ rm 'mysql/2011-10-17-test_db.sql.tar.gz'
  create mode 100644 mysql/2022-11-11-databas.sql.gz
  create mode 100644 mysql/2022-11-11-mysql_db.sql.gz
  create mode 100644 mysql/2022-11-11-syst.sql.gz
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+rm 'mysql/2022-10-17-Airports.sql.tar.gz'
+rm 'mysql/2022-10-17-databas.sql.tar.gz'
+rm 'mysql/2022-10-17-mysql_db.sql.tar.gz'
+rm 'mysql/2022-10-17-syst.sql.tar.gz'
+rm 'mysql/2022-10-17-test_db.sql.tar.gz'

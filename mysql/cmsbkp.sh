@@ -9,7 +9,7 @@ dbsbkp() {
 dblist=$(echo show databases | mysql -h $host | sed '1d' | 
 grep -Ev '(^(mysql|sys|information_schema|performance_schema)$)')
 for db in $dblist; do
-mysqldump $db | gzip -9 > $dir/mysql/$date$db.sql.gz  
+mysqldump --add-drop-database --databases $db | gzip -9 > $dir/mysql/$date$db.sql.gz  
 done
 }
 

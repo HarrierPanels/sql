@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  mysql:
+    container_name: mysql-stack
+    build:
+        context: ./mysql
+        dockerfile: Dockerfile   
+    environment:
+      - MYSQL_ROOT_PASSWORD=7Ujm8ik,9ol.
+      - MYSQL_USER=a
+      - MYSQL_DATABASE=cms_db 
+      - MYSQL_PASSWORD=7Ujm8ik,9ol.
+      - MYSQL_TCP_PORT=3306
+    restart: always
+
+  cms:
+    container_name: php-stack
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    environment:
+      - MYSQL_DBHOST=mysql
+      - MYSQL_DBPORT=3306
+      - MYSQL_DBUSER=a
+      - MYSQL_DBPASS=7Ujm8ik,9ol.
+      - MYSQL_DBNAME=cms_db
+    ports:
+      - 80:80
+      - 8083:443
+    depends_on:
+      - mysql
