@@ -124,3 +124,22 @@ rm 'mysql/2022-10-17-databas.sql.tar.gz'
 rm 'mysql/2022-10-17-mysql_db.sql.tar.gz'
 rm 'mysql/2022-10-17-syst.sql.tar.gz'
 rm 'mysql/2022-10-17-test_db.sql.tar.gz'
+[master e5858ac] DB's Backup & Remove Old
+ 20 files changed, 91 insertions(+), 1 deletion(-)
+ delete mode 100644 mysql/2022-10-17-Airports.sql.tar.gz
+ delete mode 100644 mysql/2022-10-17-databas.sql.tar.gz
+ delete mode 100644 mysql/2022-10-17-mysql_db.sql.tar.gz
+ delete mode 100644 mysql/2022-10-17-syst.sql.tar.gz
+ delete mode 100644 mysql/2022-10-17-test_db.sql.tar.gz
+ delete mode 100644 mysql/2022-11-11-cms_db.sql.gz
+ create mode 100644 mysql/2022-11-20-Airports.sql.gz
+ create mode 100644 mysql/2022-11-20-cms.tar.gz
+ create mode 100644 mysql/2022-11-20-cms_db.sql.gz
+ create mode 100644 mysql/2022-11-20-databas.sql.gz
+ create mode 100644 mysql/2022-11-20-mysql_db.sql.gz
+ create mode 100644 mysql/2022-11-20-syst.sql.gz
+ create mode 100644 mysql/docker/docker-compose.yml
+ create mode 100644 mysql/docker/mysql/.my.cnf
+ create mode 100644 mysql/docker/mysql/Dockerfile
+ create mode 100644 mysql/docker/php/Dockerfile
+ create mode 100644 mysql/docker/php/bkp/.index2.php.swp
