@@ -156,3 +156,27 @@ html/articles.php
 html/index.php
 html/header.php
 html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+rm 'mysql/2009-06-20-testrm.sql.gz'
+rm 'mysql/2010-06-20-testrm.sql.tar.gz'
+rm 'mysql/2011-06-20-testrm.sql.tar.gz'
+rm 'mysql/2012-06-20-testrm.sql.tar.gz'
+rm 'mysql/2012-06-21-testrm.sql.tar.gz'
+rm 'mysql/2012-06-22-testrm.sql.tar.gz'
+rm 'mysql/2022-11-01-Airports.sql.tar.gz'
+rm 'mysql/2022-11-01-databas.sql.tar.gz'
+rm 'mysql/2022-11-01-mysql_db.sql.tar.gz'
+rm 'mysql/2022-11-01-syst.sql.tar.gz'
+rm 'mysql/2022-11-01-test_db.sql.tar.gz'
