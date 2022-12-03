@@ -107,8 +107,7 @@ EOF
          stage('Deploy') {
             steps {
                 sh 'mv /home/ec2-user/sql/mysql/docker/mysql/bkp/*cms_* .'
-				sh 'mv /home/ec2-user/sql/mysql/docker/php/bkp/*cms.* .'
-				sh 'pwd'
+		sh 'mv /home/ec2-user/sql/mysql/docker/php/bkp/*cms.* .'
                 sshPublisher(
                 continueOnError: false, 
                 failOnError: true,
