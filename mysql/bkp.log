@@ -263,3 +263,39 @@ html/articles.php
 html/index.php
 html/header.php
 html/footer.php
+[master 19ec8f3] DB's Backup & Remove Old
+ 10 files changed, 80 insertions(+), 15 deletions(-)
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+rm 'mysql/2022-11-08-Airports.sql.tar.gz'
+rm 'mysql/2022-11-08-databas.sql.tar.gz'
+rm 'mysql/2022-11-08-mysql_db.sql.tar.gz'
+rm 'mysql/2022-11-08-syst.sql.tar.gz'
+rm 'mysql/2022-11-08-test_db.sql.tar.gz'
+rm 'mysql/2022-11-09-Airports.sql.tar.gz'
+rm 'mysql/2022-11-09-databas.sql.tar.gz'
+rm 'mysql/2022-11-09-mysql_db.sql.tar.gz'
+rm 'mysql/2022-11-09-syst.sql.tar.gz'
+rm 'mysql/2022-11-09-test_db.sql.tar.gz'
+rm 'mysql/2022-11-10-Airports.sql.gz'
+rm 'mysql/2022-11-10-databas.sql.gz'
+rm 'mysql/2022-11-10-mysql_db.sql.gz'
+rm 'mysql/2022-11-10-syst.sql.gz'
+rm 'mysql/2022-11-10-template_db.sql.gz'
+rm 'mysql/2022-11-10-test_db.sql.gz'
+rm 'mysql/2022-11-11-Airports.sql.gz'
+rm 'mysql/2022-11-11-cms.tar.gz'
+rm 'mysql/2022-11-11-databas.sql.gz'
+rm 'mysql/2022-11-11-mysql_db.sql.gz'
+rm 'mysql/2022-11-11-syst.sql.gz'
