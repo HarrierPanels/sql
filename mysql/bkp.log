@@ -299,3 +299,58 @@ rm 'mysql/2022-11-11-cms.tar.gz'
 rm 'mysql/2022-11-11-databas.sql.gz'
 rm 'mysql/2022-11-11-mysql_db.sql.gz'
 rm 'mysql/2022-11-11-syst.sql.gz'
+[master 1b9b4a2] DB's Backup & Remove Old
+ 29 files changed, 46 insertions(+)
+ delete mode 100644 mysql/2022-11-08-Airports.sql.tar.gz
+ delete mode 100644 mysql/2022-11-08-databas.sql.tar.gz
+ delete mode 100644 mysql/2022-11-08-mysql_db.sql.tar.gz
+ delete mode 100644 mysql/2022-11-08-syst.sql.tar.gz
+ delete mode 100644 mysql/2022-11-08-test_db.sql.tar.gz
+ delete mode 100644 mysql/2022-11-09-Airports.sql.tar.gz
+ delete mode 100644 mysql/2022-11-09-databas.sql.tar.gz
+ delete mode 100644 mysql/2022-11-09-mysql_db.sql.tar.gz
+ delete mode 100644 mysql/2022-11-09-syst.sql.tar.gz
+ delete mode 100644 mysql/2022-11-09-test_db.sql.tar.gz
+ delete mode 100644 mysql/2022-11-10-Airports.sql.gz
+ delete mode 100644 mysql/2022-11-10-databas.sql.gz
+ delete mode 100644 mysql/2022-11-10-mysql_db.sql.gz
+ delete mode 100644 mysql/2022-11-10-syst.sql.gz
+ delete mode 100644 mysql/2022-11-10-template_db.sql.gz
+ delete mode 100644 mysql/2022-11-10-test_db.sql.gz
+ delete mode 100644 mysql/2022-11-11-Airports.sql.gz
+ delete mode 100644 mysql/2022-11-11-cms.tar.gz
+ delete mode 100644 mysql/2022-11-11-databas.sql.gz
+ delete mode 100644 mysql/2022-11-11-mysql_db.sql.gz
+ delete mode 100644 mysql/2022-11-11-syst.sql.gz
+ create mode 100644 mysql/2022-12-12-Airports.sql.gz
+ create mode 100644 mysql/2022-12-12-cms.tar.gz
+ create mode 100644 mysql/2022-12-12-cms_db.sql.gz
+ create mode 100644 mysql/2022-12-12-databas.sql.gz
+ create mode 100644 mysql/2022-12-12-mysql_db.sql.gz
+ create mode 100644 mysql/2022-12-12-syst.sql.gz
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
