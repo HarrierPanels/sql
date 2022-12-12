@@ -27,6 +27,6 @@ services:
       - MYSQL_DBNAME=cms_db
     ports:
       - 80:80
-      - 8083:443
+      - 443:443
     depends_on:
       - mysql
