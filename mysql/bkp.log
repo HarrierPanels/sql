@@ -873,3 +873,31 @@ html/articles.php
 html/index.php
 html/header.php
 html/footer.php
+[master 03266f1] DB's Backup & Remove Old
+ 8 files changed, 38 insertions(+)
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
