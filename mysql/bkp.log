@@ -1153,3 +1153,65 @@ rm 'mysql/2022-12-13-cms.tar.gz'
 rm 'mysql/2022-12-13-databas.sql.gz'
 rm 'mysql/2022-12-13-mysql_db.sql.gz'
 rm 'mysql/2022-12-13-syst.sql.gz'
+[master 9fc0fdb] DB's Backup & Remove Old
+ 35 files changed, 56 insertions(+)
+ delete mode 100644 mysql/2022-11-20-Airports.sql.gz
+ delete mode 100644 mysql/2022-11-20-cms.tar.gz
+ delete mode 100644 mysql/2022-11-20-cms_db.sql.gz
+ delete mode 100644 mysql/2022-11-20-databas.sql.gz
+ delete mode 100644 mysql/2022-11-20-mysql_db.sql.gz
+ delete mode 100644 mysql/2022-11-20-syst.sql.gz
+ delete mode 100644 mysql/2022-11-27-Airports.sql.gz
+ delete mode 100644 mysql/2022-11-27-cms_db.sql.gz
+ delete mode 100644 mysql/2022-11-27-databas.sql.gz
+ delete mode 100644 mysql/2022-11-27-mysql_db.sql.gz
+ delete mode 100644 mysql/2022-11-27-syst.sql.gz
+ delete mode 100644 mysql/2022-12-03-Airports.sql.gz
+ delete mode 100644 mysql/2022-12-03-cms.tar.gz
+ delete mode 100644 mysql/2022-12-03-cms_db.sql.gz
+ delete mode 100644 mysql/2022-12-03-databas.sql.gz
+ delete mode 100644 mysql/2022-12-03-mysql_db.sql.gz
+ delete mode 100644 mysql/2022-12-03-syst.sql.gz
+ delete mode 100644 mysql/2022-12-12-Airports.sql.gz
+ delete mode 100644 mysql/2022-12-12-cms.tar.gz
+ delete mode 100644 mysql/2022-12-12-cms_db.sql.gz
+ delete mode 100644 mysql/2022-12-12-databas.sql.gz
+ delete mode 100644 mysql/2022-12-12-mysql_db.sql.gz
+ delete mode 100644 mysql/2022-12-12-syst.sql.gz
+ delete mode 100644 mysql/2022-12-13-Airports.sql.gz
+ delete mode 100644 mysql/2022-12-13-cms.tar.gz
+ delete mode 100644 mysql/2022-12-13-databas.sql.gz
+ delete mode 100644 mysql/2022-12-13-mysql_db.sql.gz
+ delete mode 100644 mysql/2022-12-13-syst.sql.gz
+ create mode 100644 mysql/2023-01-11-Airports.sql.gz
+ rename mysql/{2022-11-27-cms.tar.gz => 2023-01-11-cms.tar.gz} (99%)
+ rename mysql/{2022-12-13-cms_db.sql.gz => 2023-01-11-cms_db.sql.gz} (94%)
+ create mode 100644 mysql/2023-01-11-databas.sql.gz
+ create mode 100644 mysql/2023-01-11-mysql_db.sql.gz
+ create mode 100644 mysql/2023-01-11-syst.sql.gz
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
