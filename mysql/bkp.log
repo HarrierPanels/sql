@@ -1097,3 +1097,59 @@ html/articles.php
 html/index.php
 html/header.php
 html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+rm 'mysql/2022-11-20-Airports.sql.gz'
+rm 'mysql/2022-11-20-cms_db.sql.gz'
+rm 'mysql/2022-11-20-cms.tar.gz'
+rm 'mysql/2022-11-20-databas.sql.gz'
+rm 'mysql/2022-11-20-mysql_db.sql.gz'
+rm 'mysql/2022-11-20-syst.sql.gz'
+rm 'mysql/2022-11-27-Airports.sql.gz'
+rm 'mysql/2022-11-27-cms_db.sql.gz'
+rm 'mysql/2022-11-27-cms.tar.gz'
+rm 'mysql/2022-11-27-databas.sql.gz'
+rm 'mysql/2022-11-27-mysql_db.sql.gz'
+rm 'mysql/2022-11-27-syst.sql.gz'
+rm 'mysql/2022-12-03-Airports.sql.gz'
+rm 'mysql/2022-12-03-cms_db.sql.gz'
+rm 'mysql/2022-12-03-cms.tar.gz'
+rm 'mysql/2022-12-03-databas.sql.gz'
+rm 'mysql/2022-12-03-mysql_db.sql.gz'
+rm 'mysql/2022-12-03-syst.sql.gz'
+rm 'mysql/2022-12-12-Airports.sql.gz'
+rm 'mysql/2022-12-12-cms_db.sql.gz'
+rm 'mysql/2022-12-12-cms.tar.gz'
+rm 'mysql/2022-12-12-databas.sql.gz'
+rm 'mysql/2022-12-12-mysql_db.sql.gz'
+rm 'mysql/2022-12-12-syst.sql.gz'
+rm 'mysql/2022-12-13-Airports.sql.gz'
+rm 'mysql/2022-12-13-cms_db.sql.gz'
+rm 'mysql/2022-12-13-cms.tar.gz'
+rm 'mysql/2022-12-13-databas.sql.gz'
+rm 'mysql/2022-12-13-mysql_db.sql.gz'
+rm 'mysql/2022-12-13-syst.sql.gz'
