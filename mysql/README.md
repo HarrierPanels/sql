@@ -2,7 +2,7 @@ PHP based CMS: Aviation blog Template CI/CD
 
 It includes 4 stages: Pre-Build - DB & CMS coding backup carried out locally by cron; Build, Test, & Deploy - by Jenkins. 
 
-Trigered out by GitHub Webhook a declerative pipeline (Jenkinsfile) job is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin.
+Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin.
 
 1. Pre-Build
 
