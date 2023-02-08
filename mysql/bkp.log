@@ -1396,3 +1396,37 @@ html/articles.php
 html/index.php
 html/header.php
 html/footer.php
+[master 7a4eb33] DB's Backup & Remove Old
+ 7 files changed, 13 insertions(+)
+ create mode 100644 mysql/2023-02-08-Airports.sql.gz
+ create mode 100644 mysql/2023-02-08-cms.tar.gz
+ create mode 100644 mysql/2023-02-08-cms_db.sql.gz
+ create mode 100644 mysql/2023-02-08-databas.sql.gz
+ create mode 100644 mysql/2023-02-08-mysql_db.sql.gz
+ create mode 100644 mysql/2023-02-08-syst.sql.gz
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php

@@ -1,5 +1,7 @@
 pipeline {
-    agent {label 'ec2-plugin'}
+    agent { 
+    	label ('ec2-plugin || ec2-slave1')
+    }
 
     stages {
         stage('Build') {
