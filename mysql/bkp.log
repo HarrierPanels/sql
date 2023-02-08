@@ -1458,3 +1458,31 @@ html/articles.php
 html/index.php
 html/header.php
 html/footer.php
+[master 2229320] DB's Backup & Remove Old
+ 9 files changed, 41 insertions(+), 1 deletion(-)
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
