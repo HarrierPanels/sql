@@ -106,6 +106,8 @@ EOF
         }
          stage('Deploy') {
             steps {
+		sh 'mv mysql/docker/mysql/bkp/*cms_* .'
+		sh 'mv mysql/docker/php/bkp/*cms.* .'
                 sshPublisher(
                 continueOnError: false, 
                 failOnError: true,
@@ -113,7 +115,7 @@ EOF
                 sshPublisherDesc(
                 configName: "server-live",
                 transfers: [
-					sshTransfer(sourceFiles: 'mysql/docker/php/bkp/*cms*'),
+					sshTransfer(sourceFiles: '*cms*'),
 					sshTransfer(execCommand: 'rm -rf /var/www/html/*'),
 					sshTransfer(execCommand: 'gunzip < bkp/*.sql.gz | mysql'),
 					sshTransfer(execCommand: 'tar -xzvf bkp/*.tar.gz -C /var/www'),
