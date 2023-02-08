@@ -1383,3 +1383,16 @@ html/articles.php
 html/index.php
 html/header.php
 html/footer.php
+cgi-bin/
+html/
+html/includes/
+html/includes/db.php
+html/css/
+html/css/main.css
+html/images/
+html/images/b737.jpg
+html/handle.php
+html/articles.php
+html/index.php
+html/header.php
+html/footer.php
