@@ -103,9 +103,9 @@ EOF
 				echo '--------SUCCESS--------'                	
             }
         }
-	 junit 'test-results.xml'   
-         stage('Deploy') {
+	stage('Deploy') {
             steps {
+		junit 'report.xml'    
                 sh 'mv mysql/docker/mysql/bkp/*cms_* .'
 		sh 'mv mysql/docker/php/bkp/*cms.* .'
                 sshPublisher(
