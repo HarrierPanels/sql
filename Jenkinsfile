@@ -105,8 +105,7 @@ EOF
         }
 	stage('Deploy') {
             steps {
-		junit 'report.xml'    
-                sh 'mv mysql/docker/mysql/bkp/*cms_* .'
+		sh 'mv mysql/docker/mysql/bkp/*cms_* .'
 		sh 'mv mysql/docker/php/bkp/*cms.* .'
                 sshPublisher(
                 continueOnError: false, 
@@ -128,9 +127,4 @@ EOF
             }
         }               
     }
-    post {
-        always {
-            junit skipPublishingChecks: true, testResults: '*.xml'
-        }
-    }	
 }
