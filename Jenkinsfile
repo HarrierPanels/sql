@@ -1,5 +1,7 @@
 pipeline {
-    agent {label 'ec2-plugin'}
+    agent {
+	label 'ec2-plugin'
+    }
 
     stages {
         stage('Build') {
