@@ -7,7 +7,9 @@ pipeline {
 				echo '--------START--------'
                 sh label: 'Build', script: '''
 					latestbkp() { ls *$1* | sort -nr | head -n1; }
-					cd mysql
+					cd /home/ec2-user
+					git clone https://github.com/HarrierPanels/sql.git
+					cd sql/mysql
 					cp $(latestbkp cms_) docker/mysql/bkp
 					cp $(latestbkp cms.) docker/php/bkp
 cat << EOF >docker/php/bkp/test.php
@@ -34,7 +36,6 @@ cat << EOF >docker/mysql/bkp/.my.cnf
 [mysql]
 user=a
 password=7Ujm8ik,9ol.
-
 [mysqldump]
 user=a
 password=7Ujm8ik,9ol.
@@ -104,8 +105,8 @@ EOF
         }
          stage('Deploy') {
             steps {
-                sh 'mv mysql/docker/mysql/bkp/*cms_* .'
-		sh 'mv mysql/docker/php/bkp/*cms.* .'
+                sh 'mv /home/ec2-user/sql/mysql/docker/mysql/bkp/*cms_* .'
+		sh 'mv /home/ec2-user/sql/mysql/docker/php/bkp/*cms.* .'
                 sshPublisher(
                 continueOnError: false, 
                 failOnError: true,
