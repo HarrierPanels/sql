@@ -7,9 +7,7 @@ pipeline {
 				echo '--------START--------'
                 sh label: 'Build', script: '''
 					latestbkp() { ls *$1* | sort -nr | head -n1; }
-					cd /home/ec2-user
-					git clone https://github.com/HarrierPanels/sql.git
-					cd sql/mysql
+					cd mysql
 					cp $(latestbkp cms_) docker/mysql/bkp
 					cp $(latestbkp cms.) docker/php/bkp
 cat << EOF >docker/php/bkp/test.php
@@ -51,7 +49,7 @@ EOF
             steps {
 				echo '--------START--------'                
 				sh label: 'Test Docker', script: '''
-                    for i in {10..1}; do sleep 10
+                    			for i in {10..1}; do sleep 10
 					curl -Ls localhost
 						if [ $? -eq 0 ]; then
 						echo 'Docker is up!'
@@ -70,9 +68,9 @@ EOF
 				sh label: 'Test DB', script: '''
 					for i in {10..1}; do sleep 10 && echo 'Connecting to DB ...'
 					test="localhost/test.php?user=test&password=12345"
-                    testdb=$(curl -Ls $test | grep -oP "test" | wc -l)
+                    			testdb=$(curl -Ls $test | grep -oP "test" | wc -l)
 					if [ $testdb -eq 1 ]; then
-                    echo 'Test DB passed!'
+                    			echo 'Test DB passed!'
 					break
 					fi
 					echo "$((i-1)) atempts left!"
@@ -105,8 +103,8 @@ EOF
         }
          stage('Deploy') {
             steps {
-                sh 'mv /home/ec2-user/sql/mysql/docker/mysql/bkp/*cms_* .'
-		sh 'mv /home/ec2-user/sql/mysql/docker/php/bkp/*cms.* .'
+                sh 'mv mysql/docker/mysql/bkp/*cms_* .'
+		sh 'mv mysql/docker/php/bkp/*cms.* .'
                 sshPublisher(
                 continueOnError: false, 
                 failOnError: true,
