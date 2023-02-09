@@ -103,6 +103,7 @@ EOF
 				echo '--------SUCCESS--------'                	
             }
         }
+	 junit 'test-results.xml'   
          stage('Deploy') {
             steps {
                 sh 'mv mysql/docker/mysql/bkp/*cms_* .'
@@ -129,7 +130,7 @@ EOF
     }
     post {
         always {
-            junit skipPublishingChecks: true, testResults: 'test-results.xml'
+            junit skipPublishingChecks: true, testResults: '*.xml'
         }
     }	
 }
