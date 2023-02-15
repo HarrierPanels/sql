@@ -1,5 +1,0 @@
-[cmsbkp]
-3.95.234.88
-
-[local]
-localhost ansible_host=localhost
