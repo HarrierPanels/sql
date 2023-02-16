@@ -1,5 +1,5 @@
+[![HitCount](https://hits.dwyl.com/HarrierPanels/sql.svg?style=flat&show=unique)](http://hits.dwyl.com/HarrierPanels/sql)
 PHP based CMS: Aviation blog Template CI/CD
-[![HitCount](https://hits.dwyl.com/HarrierPanels/sql.svg?style=flat)](http://hits.dwyl.com/HarrierPanels/sql)
 ###### Prerequisites
 - Content Management Team (to add content)
 - Developer Team (to add more features to CMS)
