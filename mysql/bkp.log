@@ -2402,3 +2402,155 @@ Using module file /usr/lib/python2.7/site-packages/ansible/modules/commands/comm
 <localhost> (0, '', '')
 <localhost> ESTABLISH SSH CONNECTION FOR USER: a
 <localhost> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="a"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o ControlPath=/home/a/.ansible/cp/f73a76c48f -tt localhost '/bin/sh -c '"'"'/usr/bin/python3 /home/a/.ansible/tmp/ansible-tmp-1676560144.83-4655-22491779134301/AnsiballZ_command.py && sleep 0'"'"''
+<localhost> (0, '\r\n{"cmd": "cd /home/a/sql\\ngit add . && git commit -m \\"Backup & Remove Old by Cron / Ansible\\"\\n", "stdout": "[master e98a929] Backup & Remove Old by Cron / Ansible\\n 14 files changed, 513 insertions(+)\\n create mode 100644 mysql/2023-02-16-Airports.sql.gz\\n create mode 100644 mysql/2023-02-16-cms.tar.gz\\n create mode 100644 mysql/2023-02-16-cms_db.sql.gz\\n create mode 100644 mysql/2023-02-16-databas.sql.gz\\n create mode 100644 mysql/2023-02-16-mysql_db.sql.gz\\n create mode 100644 mysql/2023-02-16-syst.sql.gz", "stderr": "\\n**** Pushing current branch master to origin [i4h post-commit hook]\\n\\nTo github.com:HarrierPanels/sql.git\\n   d1f4761..e98a929  master -> master", "rc": 0, "start": "2023-02-16 17:09:08.299263", "end": "2023-02-16 17:09:17.275143", "delta": "0:00:08.975880", "changed": true, "invocation": {"module_args": {"_uses_shell": true, "_raw_params": "cd /home/a/sql\\ngit add . && git commit -m \\"Backup & Remove Old by Cron / Ansible\\"\\n", "warn": true, "stdin_add_newline": true, "strip_empty_ends": true, "argv": null, "chdir": null, "executable": null, "creates": null, "removes": null, "stdin": null}}}\r\n', 'Shared connection to localhost closed.\r\n')
+<localhost> ESTABLISH SSH CONNECTION FOR USER: a
+<localhost> SSH: EXEC ssh -C -o ControlMaster=auto -o ControlPersist=60s -o KbdInteractiveAuthentication=no -o PreferredAuthentications=gssapi-with-mic,gssapi-keyex,hostbased,publickey -o PasswordAuthentication=no -o 'User="a"' -o ConnectTimeout=10 -o StrictHostKeyChecking=no -o ControlPath=/home/a/.ansible/cp/f73a76c48f localhost '/bin/sh -c '"'"'rm -f -r /home/a/.ansible/tmp/ansible-tmp-1676560144.83-4655-22491779134301/ > /dev/null 2>&1 && sleep 0'"'"''
+<localhost> (0, '', '')
+changed: [54.205.143.154 -> localhost] => {
+    "changed": true, 
+    "cmd": "cd /home/a/sql\ngit add . && git commit -m \"Backup & Remove Old by Cron / Ansible\"\n", 
+    "delta": "0:00:08.975880", 
+    "end": "2023-02-16 17:09:17.275143", 
+    "invocation": {
+        "module_args": {
+            "_raw_params": "cd /home/a/sql\ngit add . && git commit -m \"Backup & Remove Old by Cron / Ansible\"\n", 
+            "_uses_shell": true, 
+            "argv": null, 
+            "chdir": null, 
+            "creates": null, 
+            "executable": null, 
+            "removes": null, 
+            "stdin": null, 
+            "stdin_add_newline": true, 
+            "strip_empty_ends": true, 
+            "warn": true
+        }
+    }, 
+    "rc": 0, 
+    "start": "2023-02-16 17:09:08.299263", 
+    "stderr": "\n**** Pushing current branch master to origin [i4h post-commit hook]\n\nTo github.com:HarrierPanels/sql.git\n   d1f4761..e98a929  master -> master", 
+    "stderr_lines": [
+        "", 
+        "**** Pushing current branch master to origin [i4h post-commit hook]", 
+        "", 
+        "To github.com:HarrierPanels/sql.git", 
+        "   d1f4761..e98a929  master -> master"
+    ], 
+    "stdout": "[master e98a929] Backup & Remove Old by Cron / Ansible\n 14 files changed, 513 insertions(+)\n create mode 100644 mysql/2023-02-16-Airports.sql.gz\n create mode 100644 mysql/2023-02-16-cms.tar.gz\n create mode 100644 mysql/2023-02-16-cms_db.sql.gz\n create mode 100644 mysql/2023-02-16-databas.sql.gz\n create mode 100644 mysql/2023-02-16-mysql_db.sql.gz\n create mode 100644 mysql/2023-02-16-syst.sql.gz", 
+    "stdout_lines": [
+        "[master e98a929] Backup & Remove Old by Cron / Ansible", 
+        " 14 files changed, 513 insertions(+)", 
+        " create mode 100644 mysql/2023-02-16-Airports.sql.gz", 
+        " create mode 100644 mysql/2023-02-16-cms.tar.gz", 
+        " create mode 100644 mysql/2023-02-16-cms_db.sql.gz", 
+        " create mode 100644 mysql/2023-02-16-databas.sql.gz", 
+        " create mode 100644 mysql/2023-02-16-mysql_db.sql.gz", 
+        " create mode 100644 mysql/2023-02-16-syst.sql.gz"
+    ]
+}
+
+TASK [Git push] ****************************************************************
+task path: /home/a/cmsbkp/cmsbkp.yml:27
+ok: [54.205.143.154] => {
+    "git": {
+        "changed": true, 
+        "cmd": "cd /home/a/sql\ngit add . && git commit -m \"Backup & Remove Old by Cron / Ansible\"\n", 
+        "delta": "0:00:08.975880", 
+        "end": "2023-02-16 17:09:17.275143", 
+        "failed": false, 
+        "rc": 0, 
+        "start": "2023-02-16 17:09:08.299263", 
+        "stderr": "\n**** Pushing current branch master to origin [i4h post-commit hook]\n\nTo github.com:HarrierPanels/sql.git\n   d1f4761..e98a929  master -> master", 
+        "stderr_lines": [
+            "", 
+            "**** Pushing current branch master to origin [i4h post-commit hook]", 
+            "", 
+            "To github.com:HarrierPanels/sql.git", 
+            "   d1f4761..e98a929  master -> master"
+        ], 
+        "stdout": "[master e98a929] Backup & Remove Old by Cron / Ansible\n 14 files changed, 513 insertions(+)\n create mode 100644 mysql/2023-02-16-Airports.sql.gz\n create mode 100644 mysql/2023-02-16-cms.tar.gz\n create mode 100644 mysql/2023-02-16-cms_db.sql.gz\n create mode 100644 mysql/2023-02-16-databas.sql.gz\n create mode 100644 mysql/2023-02-16-mysql_db.sql.gz\n create mode 100644 mysql/2023-02-16-syst.sql.gz", 
+        "stdout_lines": [
+            "[master e98a929] Backup & Remove Old by Cron / Ansible", 
+            " 14 files changed, 513 insertions(+)", 
+            " create mode 100644 mysql/2023-02-16-Airports.sql.gz", 
+            " create mode 100644 mysql/2023-02-16-cms.tar.gz", 
+            " create mode 100644 mysql/2023-02-16-cms_db.sql.gz", 
+            " create mode 100644 mysql/2023-02-16-databas.sql.gz", 
+            " create mode 100644 mysql/2023-02-16-mysql_db.sql.gz", 
+            " create mode 100644 mysql/2023-02-16-syst.sql.gz"
+        ]
+    }
+}
+META: ran handlers
+META: ran handlers
+
+PLAY RECAP *********************************************************************
+54.205.143.154             : ok=3    changed=2    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+[1;31mAWS unreachable! [0m
+Command failed, retrying after 5 seconds... 1/100
+[1;31mAWS unreachable! [0m
+Command failed, retrying after 5 seconds... 2/100
+[1;32mAWS OK[0m
+[1;31mAWS unreachable! [0m
+Command failed, retrying after 5 seconds... 1/100
+[1;31mAWS unreachable! [0m
+Command failed, retrying after 5 seconds... 2/100
+[1;31mAWS unreachable! [0m
+Command failed, retrying after 5 seconds... 3/100
+[1;32mAWS OK[0m
+1 sec [1;32mAWS OK[0m
+2 sec [1;32mAWS OK[0m
+3 sec [1;32mAWS OK[0m
+4 sec [1;32mAWS OK[0m
+5 sec [1;32mAWS OK[0m
+6 sec [1;32mAWS OK[0m
+7 sec [1;31mAWS unreachable! [0m
+Command failed, retrying after 5 seconds... 1/100
+[1;31mAWS unreachable! [0m
+Command failed, retrying after 5 seconds... 2/100
+[1;32mAWS OK[0m
+8 sec [1;32mAWS OK[0m
+9 sec [1;32mAWS OK[0m
+10 sec [1;32mAWS OK[0m
+11 sec [1;32mAWS OK[0m
+12 sec [1;32mAWS OK[0m
+13 sec [1;32mAWS OK[0m
+14 sec [1;32mAWS OK[0m
+15 sec [1;32mAWS OK[0m
+16 sec [1;32mAWS OK[0m
+17 sec [1;32mAWS OK[0m
+18 sec [1;32mAWS OK[0m
+19 sec [1;32mAWS OK[0m
+20 sec [1;32mAWS OK[0m
+21 sec [1;32mAWS OK[0m
+22 sec [1;32mAWS OK[0m
+23 sec [1;32mAWS OK[0m
+24 sec [1;32mAWS OK[0m
+25 sec [1;32mAWS OK[0m
+26 sec [1;32mAWS OK[0m
+27 sec [1;32mAWS OK[0m
+28 sec [1;32mAWS OK[0m
+29 sec [1;32mAWS OK[0m
+30 sec [1;32mAWS OK[0m
+31 sec [1;32mAWS OK[0m
+32 sec [1;32mAWS OK[0m
+33 sec [1;32mAWS OK[0m
+34 sec [1;32mAWS OK[0m
+35 sec [1;32mAWS OK[0m
+36 sec [1;32mAWS OK[0m
+37 sec [1;32mAWS OK[0m
+38 sec [1;32mAWS OK[0m
+39 sec [1;32mAWS OK[0m
+40 sec [1;32mAWS OK[0m
+41 sec [1;32mAWS OK[0m
+42 sec [1;32mAWS OK[0m
+43 sec [1;32mAWS OK[0m
+44 sec [1;32mAWS OK[0m
+45 sec [1;32mAWS OK[0m
+46 sec [1;32mAWS OK[0m
+47 sec [1;32mAWS OK[0m
+48 sec [1;32mAWS OK[0m
+49 sec [1;32mAWS OK[0m
+50 sec 
+Done! 
