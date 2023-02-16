@@ -8,13 +8,13 @@ PHP based CMS: Aviation blog Template CI/CD
 - Content Management Team (to add content)
 - Developer Team (to add more features to CMS)
 - Design Team (to add more visual effects, etc.)
-- Servers: Local LAMP server, GitHub
+ + **Servers:** Local LAMP server, GitHub
 ##
 - DevOps (CI/CD)
-- Ansible / Terraform controller local node, Jenkins controller (AWS EC2)
-- Toolchain: AWS CLI, GH CLI, Terraform, Ansible, Docker, Jenkins, Crontab
+  - **Servers:** Ansible / Terraform controller local node, Jenkins controller (AWS EC2)
+  - **Toolchain:** AWS CLI, GH CLI, Terraform, Ansible, Docker, Jenkins, Crontab
 - Production Team
-- Live LAMP server (AWS EC2)
+  - **Servers:** Live LAMP server (AWS EC2)
 
 [Refactoring (Beta)](https://github.com/HarrierPanels/sql/blob/Beta/mysql/README.md)
 
