@@ -48,7 +48,7 @@ resource "null_resource" "action_instance" {
 
 }
 ```
-Jenkins has the necessary preset of plugins, credentials and agents to run a pre-configured pipeline to Build, Test, & Deploy. The pipeline is triggered by GitHub Webhook that is set by Amsible using the GH CLI webhook forwarding feature (Beta):
+Jenkins has the necessary preset of plugins, credentials and agents to run a pre-configured pipeline to Build, Test, & Deploy. The pipeline is triggered by GitHub Webhook that is set by Ansible using the GH CLI webhook forwarding feature (Beta):
 ```
 gh webhook forward --events=push --repo=HarrierPanels/sql \ 
                 --url="http://localhost:8080/github-webhook/"
