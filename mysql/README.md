@@ -1,4 +1,3 @@
-[![HitCount](https://hits.dwyl.com/HarrierPanels/sql.svg?style=flat&show=unique)](http://hits.dwyl.com/HarrierPanels/sql)
 <br>
 PHP based CMS: Aviation blog Template CI/CD
 ###### Prerequisites
