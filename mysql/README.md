@@ -49,7 +49,7 @@ Jenkins has the necessary preset of plugins, credentials and agents to run a pre
 gh webhook forward --events=push --repo=HarrierPanels/sql \ 
                 --url="http://localhost:8080/github-webhook/"
 ```
-Then DB & CMS coding backup carried out locally by Cron as well as git push. 
+Then DB & CMS coding backup is carried out locally by Cron as well as git push. 
 
 Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin.
 
