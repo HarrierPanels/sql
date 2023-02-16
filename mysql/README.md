@@ -1,5 +1,17 @@
 PHP based CMS: Aviation blog Template CI/CD
 
+###### Prerequisites
+- Content Management Team (to add content)
+- Developer Team (to add more features to CMS)
+- Design Team (to add more visual effects, etc.)
+- Servers: Local LAMP server, GitHub
+&nbsp;<br>
+- DevOps (CI/CD)
+- Ansible / Terraform controller local node
+- Toolchain: AWS CLI, GH CLI, Terraform, Ansible, Docker, Jenkins
+- Production Team
+- Live LAMP server (AWS EC2)
+
 [Refactoring (Beta)](https://github.com/HarrierPanels/sql/blob/Beta/mysql/README.md)
 
 It includes 4 stages: Pre-Build - DB & CMS coding backup carried out locally by cron; Build, Test, & Deploy - by Jenkins. 
