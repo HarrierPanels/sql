@@ -1,5 +1,5 @@
 PHP based CMS: Aviation blog Template CI/CD
-[Click me](http://www.google.com){: .btn}
+![GitHub CI](https://github.com/dwyl/auth_plug/actions/workflows/ci.yml/badge.svg)
 ###### Prerequisites
 - Content Management Team (to add content)
 - Developer Team (to add more features to CMS)
