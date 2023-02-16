@@ -1,6 +1,6 @@
 PHP based CMS: Aviation blog Template CI/CD
 
-[Refactoring (Beta)](/tree/Beta/mysql/README.md)
+[Refactoring (Beta)](HarrierPanels/sql/blob/Beta/mysql/README.md)
 
 It includes 4 stages: Pre-Build - DB & CMS coding backup carried out locally by cron; Build, Test, & Deploy - by Jenkins. 
 
