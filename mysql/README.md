@@ -5,16 +5,51 @@ PHP based CMS: Aviation blog Template CI/CD
 - Developer Team (to add more features to CMS)
 - Design Team (to add more visual effects, etc.)
 - Servers: Local LAMP server, GitHub
-&nbsp;<br>
+##
 - DevOps (CI/CD)
-- Ansible / Terraform controller local node
-- Toolchain: AWS CLI, GH CLI, Terraform, Ansible, Docker, Jenkins
+- Ansible / Terraform controller local node, Jenkins controller (AWS EC2)
+- Toolchain: AWS CLI, GH CLI, Terraform, Ansible, Docker, Jenkins, Crontab
 - Production Team
 - Live LAMP server (AWS EC2)
 
 [Refactoring (Beta)](https://github.com/HarrierPanels/sql/blob/Beta/mysql/README.md)
 
-It includes 4 stages: Pre-Build - DB & CMS coding backup carried out locally by cron; Build, Test, & Deploy - by Jenkins. 
+It includes 4 stages: Pre-Build - the Jenkins server is started up by Terraform using Null Resource:
+```
+provider "aws" {}
+
+resource "aws_instance" "jenkins" {
+  ami                         = "ami-xxxxxxxxxxx"
+  instance_type               = "t2.micro"
+  tags = {
+    Name = "jenkins"
+  }
+}
+resource "null_resource" "action_instance" {
+  provisioner "local-exec" {
+    on_failure  = fail
+    interpreter = ["/bin/bash", "-c"]
+    command     = <<EOT
+        echo "Starting instance having id ${aws_instance.jenkins.id} .................."
+    # Start instance using AWS CLI
+    /usr/local/bin/aws ec2 start-instances --instance-ids ${aws_instance.jenkins.id} --profile your_profile
+        
+        echo "******** Started *******"
+     EOT
+  }
+#   this setting will trigger script every time, change it if needed
+  triggers = {
+    always_run = "${timestamp()}"
+  }
+
+}
+```
+Jenkins has the necessary preset of plugins, credentials and agents to run a pre-configured pipeline to Build, Test, & Deploy. The pipeline is triggered by GitHub Webhook that is set by Amsible using the GH CLI webhook forwarding feature (Beta):
+```
+gh webhook forward --events=push --repo=HarrierPanels/sql \ 
+                --url="http://localhost:8080/github-webhook/"
+```
+Then DB & CMS coding backup carried out locally by Cron as well as git push. 
 
 Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin.
 
@@ -63,3 +98,5 @@ c) Step 3
 
 d) Step 4 
  - Cleaning up transferred files 
+
+If the job fails the Jenkins server will be ready for manual maintenance. If it is successful the next job run on a pre-set local agent would shut it down.
