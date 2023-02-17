@@ -127,4 +127,14 @@ EOF
             }
         }               
     }
+    post {
+       // only triggered when blue or green sign
+       success {
+           slackSend color: "#43e084", message:"Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+       }
+       // triggered when red sign
+       failure {
+           slackSend color: "#e04351", failOnError:true, message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER} (<${env.BUILD_URL}|Open>)"
+       }
+    }	
 }
