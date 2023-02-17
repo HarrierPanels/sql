@@ -103,4 +103,16 @@ c) Step 3
 d) Step 4 
  - Cleaning up transferred files 
 
-If the job fails the Jenkins server will be ready for manual maintenance. If it is successful the next job run on a pre-set local agent would shut it down.
+If the job fails the Jenkins server will be ready for manual maintenance. If it is successful the next job run on a pre-set local agent would shut it down. In both cases Jenkins will send a message to a Slack channel using Slack Notifications plugin set up in the post section of the pipeline Jenkinsfile: 
+```
+    post {
+       // only triggered when blue or green sign
+       success {
+           slackSend color: "#439FE0", message:"Build deployed successfully - ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+       }
+       // triggered when red sign
+       failure {
+           slackSend color: "#e04351", failOnError:true, message:"Build failed  - ${env.JOB_NAME} ${env.BUILD_NUMBER}"
+       }
+    }
+    ```
