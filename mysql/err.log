@@ -238,3 +238,5 @@ To github.com:HarrierPanels/sql.git
 /home/a/cmsbkp.sh: line 17: aws: command not found
 /home/a/cmsbkp.sh: line 17: aws: command not found
 /home/a/cmsbkp.sh: line 17: aws: command not found
+
+Could not connect to the endpoint URL: "https://ec2.us-east-1.amazonaws.com/"
