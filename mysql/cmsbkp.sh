@@ -6,7 +6,7 @@ host="localhost"
 date=$(date +%Y-%m-%d-)
 filename=$(basename -- "$0" | cut -d '.' -f 1)
 iac_dir="$HOME/$filename"
-prod_live_id="i-00374c21a64b631c0"
+prod_live_id="i-XXXXXXX_NOT_EXPOSED_XXXXXXX"
 ec2_info() {
 instance_id=$(terraform -chdir=$iac_dir output | head -n 1 | 
 cut -d '=' -f 2 | cut -d ']' -f 1 | tr -d " ,\"")
@@ -326,8 +326,8 @@ cat <<EOF >"$iac_dir"/"$filename".yml
         dest: "{{ aws_creds }}"
         content: |
           [default]
-          AWS_ACCESS_KEY_ID=AKIASVJVXXNYYPEKMM6R
-          AWS_SECRET_ACCESS_KEY=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
+          AWS_ACCESS_KEY_ID=XXXXXXX_NOT_EXPOSED_XXXXXXX
+          AWS_SECRET_ACCESS_KEY=XXXXXXX_NOT_EXPOSED_XXXXXXX
         mode: '0600'
         owner: ec2-user
         group: ec2-user
@@ -415,7 +415,7 @@ cat <<EOF >"$iac_dir"/"$filename".yml
     - name: Create GH Token file
       ansible.builtin.copy:
         dest: "{{ dest_token }}"
-        content: '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'
+        content: 'ghp_XXXXXXX_NOT_EXPOSED_XXXXXXX'
         owner: ec2-user
         group: ec2-user
         mode: '600'
@@ -487,13 +487,13 @@ EOF
 cat <<EOF >"$iac_dir"/group_vars/"$filename" 
 ---
 ansible_user: ec2-user
-ansible_ssh_private_key_file: ~/.ssh/j2.pem
+ansible_ssh_private_key_file: ~/.ssh/XXXXXXX_NOT_EXPOSED_XXXXXXX.pem
 EOF
 
 cat <<EOF >"$iac_dir"/group_vars/local 
 ---
 ansible_user: a
-ansible_ssh_private_key_file: ~/.ssh/j2.pem
+ansible_ssh_private_key_file: ~/.ssh/XXXXXXX_NOT_EXPOSED_XXXXXXX.pem
 EOF
 
 playbook
