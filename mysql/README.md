@@ -16,9 +16,9 @@ PHP based CMS: Aviation blog Template CI/CD:
 - Production Team
 - Live LAMP server (AWS EC2)
 
-The process will start as a Crontab job ([see below](#shell)) - a Shell script started on an horly bases. It could be more or less frequent. 
+The process will start as a Crontab job ([see below](#shell)) - a Shell script started on an horly bases. It could be more or less frequent. The Shell script will also create a temporary folder for Terraform & Ansible. 
 
-It has 4 stages: Pre-Build - the infrastracture for Jenkins is created & configured by Terraform & Ansible. First Terraform will create a subnet as well as security group and then attach them to a newly created EC2 instance. It also creates a security group for the AWS EC2 Plugin:
+The whole process has 4 stages: Pre-Build - the infrastracture for Jenkins is created & configured by Terraform & Ansible. First Terraform will create a subnet as well as security group and then attach them to a newly created EC2 instance. It also creates a security group for the AWS EC2 Plugin:
 ```
 resource "aws_instance" "jenkins_docker" {
   ami                         = data.aws_ami.AL2_latest.id
@@ -118,12 +118,12 @@ resource "aws_security_group" "sg-jenkins_docker_ec2_plugin_slave" {
   }
 }
 ```
-Then Ansible would deploy a Jenkins Docker container with an attached Jenkins volume previously uploaded by the Ansible controller containig the necessary preset of Jenkins plugins, credentials and agents to run a pre-configured pipeline to Build, Test, & Deploy. The pipeline is triggered by a GitHub Webhook that is set by Ansible using the GH CLI webhook forwarding feature (Beta):
+Then Ansible would deploy a Jenkins Docker container with an attached Jenkins volume previously uploaded by the Ansible controller containig the necessary preset of Jenkins plugins, credentials and agents to run a pre-configured pipeline to Build, Test, & Deploy. The pipeline is triggered by GitHub Webhook that is set by Ansible using the GH CLI webhook forwarding feature (Beta):
 ```
 gh webhook forward --events=push --repo=HarrierPanels/sql \ 
                 --url="http://localhost:8080/github-webhook/"
 ```
-Then DB & CMS coding backup is carried out locally by Cron as well as git push.
+Then DB & CMS coding backup is carried out locally by the Shell script. The backups are put into a local Github repo folder. When done Ansible will make git push ([see below](#push)).
 
 Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job (Build, Test, & Deploy) is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin. 
 
@@ -134,7 +134,7 @@ a) DB & coding automatic backup by cron:
    ~/.my.cnf
  - <a id="shell"></a>Hourly cron job:</a>
     - 0 * * * * $HOME/cmsbkp.sh >>$HOME/sql/mysql/bkp.log 2>>$HOME/sql/mysql/err.log
- - Commit & Push to GitHub automatically by hook:
+ - <a id="push"></a>Commit & Push to GitHub automatically by hook:
    ~/sql/.git/hooks/post-commit
 
 2. Build
@@ -186,17 +186,9 @@ If the job fails the EC2 instance with Jenkins will be ready for manual maintena
        }
     }
 ```
-If it is successful the next job would start the EC2 self-terminating proccess using AWS CLI by the following commands:
-```
-instanceId=$(curl http://169.254.169.254/latest/meta-data/instance-id/)
-region=$(curl http://169.254.169.254/latest/dynamic/instance-identity/document | 
-grep region | awk '{print $3}' | sed  's/"//g'|sed 's/,//g')
+If it is successful the next job would shut down the Jenkins controller EC2 instance and when its state would come stopped the Shell script would trigger Terraform to destroy the created infrastructure. 
 
-/usr/bin/aws ec2 terminate-instances --instance-ids $instanceId --region $region
-```
-Or the job would just shut down the instance and when its state would come stopped it would trigger Terraform to destroy the instance. 
-
-This job should be started on a Jenkins local agent with pre-set IP and SSH key that would be also provisioned by Ansible in the following tasks:
+This job should be started on a Jenkins local agent with a pre-set IP and SSH key that would be also provisioned by Ansible in the following tasks:
 ```
       - name: Create authorized_keys if not exists
         ansible.builtin.file:
@@ -218,3 +210,4 @@ This job should be started on a Jenkins local agent with pre-set IP and SSH key 
         async: 10
         poll: 2
 ```
+[pipeline](CI_CD_pipeline.png)
