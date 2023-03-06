@@ -123,7 +123,7 @@ Then Ansible would deploy a Jenkins Docker container with an attached Jenkins vo
 gh webhook forward --events=push --repo=HarrierPanels/sql \ 
                 --url="http://localhost:8080/github-webhook/"
 ```
-Then DB & CMS coding backup is carried out locally by the Shell script. The backups are put into a local Github repo folder. When done Ansible will make git push ([see below](#push)).
+Then DB & CMS coding backup is carried out locally by the Shell script. The backups are put into a local Github repo folder. When done Ansible will make git commit ([see below](#push)).
 
 Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job (Build, Test, & Deploy) is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin. 
 
@@ -134,7 +134,7 @@ a) DB & coding automatic backup by cron:
    ~/.my.cnf
  - <a id="shell"></a>Hourly cron job:</a>
     - 0 * * * * $HOME/cmsbkp.sh >>$HOME/sql/mysql/bkp.log 2>>$HOME/sql/mysql/err.log
- - <a id="push"></a>Commit & Push to GitHub automatically by hook:
+ - <a id="push"></a>Commit by Ansible & Push to GitHub automatically by hook:
    ~/sql/.git/hooks/post-commit
 
 2. Build
@@ -210,4 +210,4 @@ This job should be started on a Jenkins local agent with a pre-set IP and SSH ke
         async: 10
         poll: 2
 ```
-[pipeline](CI_CD_pipeline.png)
+![pipeline](CI_CD_pipeline.png)
