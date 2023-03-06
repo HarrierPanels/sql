@@ -126,6 +126,20 @@ gh webhook forward --events=push --repo=HarrierPanels/sql \
 Then DB & CMS coding backup is carried out locally by Cron as well as git push.
 
 Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job (Build, Test, & Deploy) is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin. 
+# 1. Python
+
+# 2. c++
+
+# 3. c++11
+
+# 4. asp.net-core
+
+[1. Python](#1-python)
+[2. c++](#2-c)
+[3. c++11](#3-c11)
+[4. asp.net-core](#4-aspnet-core)
+
+
 
 1. Pre-Build
 
