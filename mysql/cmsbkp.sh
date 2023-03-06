@@ -179,7 +179,7 @@ resource "aws_security_group" "sg-jenkins_docker" {
     from_port        = 22
     to_port          = 22
     protocol         = "tcp"
-    cidr_blocks      = ["178.150.20.173/32"]
+    cidr_blocks      = ["2xx.xxx.xxx.xxx/32"] # Your IP
   }
 
   egress {
@@ -269,7 +269,8 @@ cat <<EOF >"$iac_dir"/"$filename".yml
 
     - name: Download awscliv2 installer
       ansible.builtin.shell:
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" \\                   -o "awscliv2.zip"
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" \\                   
+            -o "awscliv2.zip"
       ignore_errors: yes
 
     - name: Run the installer
