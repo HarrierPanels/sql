@@ -16,7 +16,7 @@ PHP based CMS: Aviation blog Template CI/CD:
 - Production Team
 - Live LAMP server (AWS EC2)
 
-The process will start as a Crontab job ([see below](#see-below)) - a Shell script started on an horly bases. It could be more or less frequent. 
+The process will start as a Crontab job ([see below](#shell)) - a Shell script started on an horly bases. It could be more or less frequent. 
 
 It has 4 stages: Pre-Build - the infrastracture for Jenkins is created & configured by Terraform & Ansible. First Terraform will create a subnet as well as security group and then attach them to a newly created EC2 instance. It also creates a security group for the AWS EC2 Plugin:
 ```
@@ -126,27 +126,13 @@ gh webhook forward --events=push --repo=HarrierPanels/sql \
 Then DB & CMS coding backup is carried out locally by Cron as well as git push.
 
 Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job (Build, Test, & Deploy) is started by the Jenkins controller using as its agents EC2 instances started and terminated when the job is done by AWS EC2 Plugin. 
-# 1. Python
-
-# 2. c++
-
-# 3. c++11
-
-# 4. asp.net-core
-
-[1. Python](#1-python)
-[2. c++](#2-c)
-[3. c++11](#3-c11)
-[4. asp.net-core](#4-aspnet-core)
-
-
 
 1. Pre-Build
 
 a) DB & coding automatic backup by cron:
  - MySQL no password promt login:
    ~/.my.cnf
- - #see-below Hourly cron job:</a>
+ - <a id="shell"></a>Hourly cron job:</a>
     - 0 * * * * $HOME/cmsbkp.sh >>$HOME/sql/mysql/bkp.log 2>>$HOME/sql/mysql/err.log
  - Commit & Push to GitHub automatically by hook:
    ~/sql/.git/hooks/post-commit
