@@ -129,7 +129,7 @@ Triggered out by GitHub Webhook a declarative pipeline (Jenkinsfile) job (Build,
 
 1. Pre-Build
 
-a) DB & coding automatic backup by cron:
+a) DB & coding automatic backup by Crontab / Shell script:
  - MySQL no password promt login:
    ~/.my.cnf
  - <a id="shell"></a>Hourly cron job:</a>
