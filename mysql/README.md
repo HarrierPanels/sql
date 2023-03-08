@@ -188,7 +188,7 @@ If the job fails the EC2 instance with Jenkins will be ready for manual maintena
 ```
 If it is successful the next job would shut down the Jenkins controller EC2 instance and when its state would come stopped the Shell script would trigger Terraform to destroy the created infrastructure. 
 
-This job should be started on a Jenkins local agent with a pre-set IP and SSH key that would be also provisioned by Ansible in the following tasks:
+This job should be started on a Jenkins local agent with a pre-set IP and SSH key that are provisioned by Ansible in the following tasks:
 ```
       - name: Create authorized_keys if not exists
         ansible.builtin.file:
