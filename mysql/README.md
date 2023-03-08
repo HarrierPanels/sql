@@ -16,7 +16,7 @@ PHP based CMS: Aviation blog Template CI/CD:
 - Production Team
   - Live LAMP server (AWS EC2)
 
-The process will start as a Crontab job ([see below](#shell)) - a Shell script started on an horly bases. It could be more or less frequent. The Shell script will also create a temporary folder for Terraform & Ansible. 
+The process will start as a Crontab job ([see below](#shell)) - a Shell script started on an hourly basis. It could be more or less frequent. The Shell script will also create a temporary folder for Terraform & Ansible. 
 
 The whole process has 4 stages: Pre-Build - the infrastracture for Jenkins is created & configured by Terraform & Ansible. First Terraform will create a subnet as well as security group and then attach them to a newly created EC2 instance. It also creates a security group for the AWS EC2 Plugin:
 ```
