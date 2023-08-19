@@ -1,5 +1,5 @@
 [![CICD](https://img.shields.io/badge/HarrierPanels-CI%2FCD-blue)](./)
-[![EPAM](https://img.shields.io/badge/EPAM-Final%20Project-orange)](./)
+[![EPAM](https://img.shields.io/badge/EPAM-Capstone%20Project-orange)](./)
 [![HitCount](https://hits.dwyl.com/HarrierPanels/sql.svg?style=flat&show=unique)](http://hits.dwyl.com/HarrierPanels/sql)
 <br>
 PHP based CMS: Aviation blog Template CI/CD:
