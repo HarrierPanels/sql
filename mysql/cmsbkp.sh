@@ -7,108 +7,110 @@ date=$(date +%Y-%m-%d-)
 filename=$(basename -- "$0" | cut -d '.' -f 1)
 iac_dir="$HOME/$filename"
 prod_live_id="i-XXXXXXX_NOT_EXPOSED_XXXXXXX"
+
 ec2_info() {
-instance_id=$(terraform -chdir=$iac_dir output | head -n 1 | 
-cut -d '=' -f 2 | cut -d ']' -f 1 | tr -d " ,\"")
-public_ip=$(terraform -chdir=$iac_dir output | 
-tail -n 1 | cut -d "=" -f2 | tail -n 1 | tr -d " ,\"")
-state=$(/usr/local/bin/aws ec2 describe-instances \
-   --instance-ids $instance_id \
-   --query "Reservations[*].Instances[*].[State.Name]" \
-   --o text)
-status=$(/usr/local/bin/aws ec2 describe-instance-status \
-   --instance-id $instance_id \
-   --query "InstanceStatuses[*].[InstanceStatus.Details[*].[Status]]" \
-   --o text)
+    instance_id=$(terraform -chdir=$iac_dir output | head -n 1 | 
+    cut -d '=' -f 2 | cut -d ']' -f 1 | tr -d " ,\"")
+    public_ip=$(terraform -chdir=$iac_dir output | 
+    tail -n 1 | cut -d "=" -f2 | tail -n 1 | tr -d " ,\"")
+    state=$(/usr/local/bin/aws ec2 describe-instances \
+       --instance-ids $instance_id \
+       --query "Reservations[*].Instances[*].[State.Name]" \
+       --o text)
+    status=$(/usr/local/bin/aws ec2 describe-instance-status \
+       --instance-id $instance_id \
+       --query "InstanceStatuses[*].[InstanceStatus.Details[*].[Status]]" \
+       --o text)
 }
+
 region=$(/usr/local/bin/aws configure get region)
 url="https://ec2."$region".amazonaws.com"
 
 dbsbkp() {
-dblist=$(echo show databases | mysql -h $host | sed '1d' | 
-grep -Ev '(^(mysql|sys|information_schema|performance_schema)$)')
-for db in $dblist; do
-mysqldump --add-drop-database --databases $db | gzip -9 > $dir/mysql/$date$db.sql.gz  
-done
+    dblist=$(echo show databases | mysql -h $host | sed '1d' | 
+    grep -Ev '(^(mysql|sys|information_schema|performance_schema)$)')
+    for db in $dblist; do
+        mysqldump --add-drop-database --databases $db | gzip -9 > $dir/mysql/$date$db.sql.gz  
+    done
 }
 
 cmsbkp() {
-cd /var/www && tar -cvzf $dir/mysql/"$date"cms.tar.gz *
+    cd /var/www && tar -cvzf $dir/mysql/"$date"cms.tar.gz *
 }
 
 rmold() {
-cd $dir/mysql
-current=$(echo $date | tr -d '-')
-for i in $(ls -laf *.gz); do 
-old=$(echo $i | cut -d "-" -f 1-3 | tr -d "-") 
-[[ $(($current-$old)) -gt 100 ]] && git rm $i
-done
+    cd $dir/mysql
+    current=$(echo $date | tr -d '-')
+    for i in $(ls -laf *.gz); do 
+        old=$(echo $i | cut -d "-" -f 1-3 | tr -d "-") 
+        [[ $(($current-$old)) -gt 100 ]] && git rm $i
+    done
 }
 
 init() {
-sleep 90 &
-p=$!
-f="/ | \\ -"
+    sleep 90 &
+    p=$!
+    f="/ | \\ -"
 
-while kill -0 $p >/dev/null 2>&1; do
-for i in $f; do
-printf "\r\033[1;32m$i Initializing ...\e[0m"
-sleep 0.5
-done
-done
-printf "\n"
+    while kill -0 $p >/dev/null 2>&1; do
+        for i in $f; do
+            printf "\r\033[1;32m$i Initializing ...\e[0m"
+            sleep 0.5
+        done
+    done
+    printf "\n"
 }
 
 retry() {
-function="$@"
-count=0
-max=100
-sleep=5
+    function="$@"
+    count=0
+    max=100
+    sleep=5
 
-while :; do
-$function && break
-if [ $count -lt $max ]; then
-((count++))
-echo "Command failed, retrying after $sleep seconds... $count/$max"
-sleep $sleep
-continue
-fi
-echo "Command failed, out of retries." && exit 1
-done
+    while :; do
+        $function && break
+        if [ $count -lt $max ]; then
+            ((count++))
+            echo "Command failed, retrying after $sleep seconds... $count/$max"
+            sleep $sleep
+            continue
+        fi
+        echo "Command failed, out of retries." && exit 1
+    done
 }
 
 awscheck() {
-curl -ILs $1 | grep "AmazonEC2" >/dev/null 2>&1
-[ $? -ne 0 ] && echo -e "\033[1;31mAWS unreachable! \e[0m" && return 1
-echo -e "\033[1;32mAWS OK\e[0m"
+    curl -ILs $1 | grep "AmazonEC2" >/dev/null 2>&1
+    [ $? -ne 0 ] && echo -e "\033[1;31mAWS unreachable! \e[0m" && return 1
+    echo -e "\033[1;32mAWS OK\e[0m"
 }
 
 statecheck() {
-i=1
-until [[ $state =~ "stopped" ]]; do
-retry awscheck $url && ec2_info
-printf "\r$i sec "
-((i++))
-sleep 1
-continue
-done
-terraform -chdir="$iac_dir" destroy -auto-approve
-sleep 60 && rm -rf $iac_dir 2>/dev/null
-printf "\n"
-echo "CI/CD Task complete! "
+    i=1
+    until [[ $state =~ "stopped" ]]; do
+        retry awscheck $url && ec2_info
+        printf "\r$i sec "
+        ((i++))
+        sleep 1
+        continue
+    done
+    terraform -chdir="$iac_dir" destroy -auto-approve
+    sleep 60 && rm -rf $iac_dir 2>/dev/null
+    printf "\n"
+    echo "CI/CD Task complete! "
 }
 
 statuscheck() {
-i=1
-until [[ $status =~ "passed" ]]; do
-retry awscheck $url && ec2_info
-printf "\r$i sec "
-((i++))
-sleep 1
-continue
-done
-printf "\n"
-echo "Server ready for Ansible setup! "
+    i=1
+    until [[ $status =~ "passed" ]]; do
+        retry awscheck $url && ec2_info
+        printf "\r$i sec "
+        ((i++))
+        sleep 1
+        continue
+    done
+    printf "\n"
+    echo "Server ready for Ansible setup! "
 }
 
 # Terraform Setup
@@ -515,21 +517,21 @@ sleep 240 &&
 
 # Crontab / Terraform / Ansible / Jenkins CI/CD
 cicd_toolchain() {
-mkdir -p "$iac_dir"/group_vars && trf_setup &&
-## Optional ##
-start_prod &&
-############## 
-terraform -chdir="$iac_dir" init &&
-terraform -chdir="$iac_dir" apply -auto-approve
-init && retry awscheck $url && ec2_info
-echo "Configuring..."
-ans_setup && sleep 5 && statuscheck
-ansible-playbook "$iac_dir"/*yml -i "$iac_dir"/*txt \
-   --ssh-common-args='-o StrictHostKeyChecking=no' -b -vvv
-retry awscheck $url && ec2_info && statecheck
-## Optional ##
-stop_prod
-##############  
+    mkdir -p "$iac_dir"/group_vars && trf_setup &&
+    ## Optional ##
+    start_prod &&
+    ############## 
+    terraform -chdir="$iac_dir" init &&
+    terraform -chdir="$iac_dir" apply -auto-approve
+    init && retry awscheck $url && ec2_info
+    echo "Configuring..."
+    ans_setup && sleep 5 && statuscheck
+    ansible-playbook "$iac_dir"/*yml -i "$iac_dir"/*txt \
+       --ssh-common-args='-o StrictHostKeyChecking=no' -b -vvv
+    retry awscheck $url && ec2_info && statecheck
+    ## Optional ##
+    stop_prod
+    ##############  
 }
 
 # Backing up DB's
